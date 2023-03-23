@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+	<head>
+		<title>Transaction Info</title>
+	</head>
+	<body>
+		<h2 th:text="|Transaction ID: ${transaction.id} (${transaction.type == 'C' ? 'Credit' : 'Debit'})|"></h2>
+		
+		<div th:inline="text">
+			Date: [[${transaction.date}]]
+		</div>
+		<div>
+			Amount: <span th:text="${transaction.type == 'C' ? transaction.amount : '-' + transaction.amount}"></span>
+		</div>
+		<div>
+			Description: <span th:text="${transaction.description}"></span>
+		</div>
+		<a href="/transactions">back</a>
+	</body>
+</html>
